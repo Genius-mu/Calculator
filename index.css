@@ -1,0 +1,146 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: rgb(15, 15, 14);
+}
+.calculator {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1em;
+  background: hsl(0, 0%, 10%);
+  padding: 1em;
+  border-radius: 10px;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+}
+@property --e {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+.calculator::before,
+.calculator::after {
+  content: "";
+  z-index: -1;
+  position: absolute;
+  padding: 2px;
+  border-radius: 13px;
+  background: conic-gradient(
+    from var(--e),
+    transparent,
+    transparent,
+    transparent,
+    lime
+  );
+  width: 100%;
+  height: 100%;
+  animation: animate 3s linear infinite;
+}
+.calculator::after {
+  filter: blur(10px);
+}
+@keyframes animate {
+  0% {
+    --e: 0deg;
+  }
+  100% {
+    --e: 360deg;
+  }
+}
+.calculator input {
+  height: 3em;
+  border: none;
+  outline: none;
+  width: 100%;
+  border-radius: 7px;
+  color: #fff;
+  font-size: 18px;
+  background: #ff00;
+  font-weight: 600;
+}
+#keys {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  width: 100%;
+  height: fit-content;
+  gap: 10px;
+}
+
+#keys button {
+  width: 3em;
+  height: 3em;
+  border-radius: 10px;
+  font-size: 18px;
+  font-weight: 600;
+  border: none;
+  outline: none;
+  color: #fff;
+  background: hsl(180, 5%, 12%);
+}
+#keys button:hover {
+  background: hsl(20, 5%, 20%);
+}
+#keys button:active {
+  background: hsl(20, 5%, 30%);
+}
+#keys #clear {
+  grid-column-start: 1;
+  width: 100%;
+  grid-column-end: 4;
+  background: hsl(121, 100%, 34%);
+  color: #fff;
+  cursor: pointer;
+}
+#keys #clear:hover {
+  background: hsl(121, 100%, 40%);
+}
+#keys #clear:active {
+  background: hsl(121, 100%, 27%);
+}
+#keys .operator-btn {
+  background: hsl(16, 100%, 50%);
+}
+#keys .operator-btn:hover {
+  background: hsl(16, 100%, 60%);
+}
+#keys .operator-btn:active {
+  background: hsl(16, 100%, 50%);
+}
+#keys #equal {
+  background-color: hsl(0, 100%, 50%);
+  grid-row-start: 4;
+  grid-row-end: 6;
+  grid-column-start: 4;
+  grid-column-end: 5;
+  width: 100%;
+  cursor: pointer;
+  height: 100%;
+}
+#keys #equal:hover {
+  background-color: hsl(0, 100%, 54%);
+}
+#keys #equal:active {
+  background-color: hsl(0, 100%, 60%);
+}
+
+@media (max-width: 295px) {
+  .calculator {
+    width: 100%;
+  }
+  .calculator::before, .calculator::after {
+    display: none;
+  }
+  #keys button {
+    width: 100%;
+    height: 2em;
+  }
+}
