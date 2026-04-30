@@ -1,39 +1,41 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>calculator</title>
-    <link rel="stylesheet" href="index.css" type="text/css" />
+    <title>Calculator</title>
+    <link rel="stylesheet" href="index.css" />
   </head>
 
   <body>
     <div class="calculator">
-      <input id="display" readonly />
+      <input id="display" readonly placeholder="0" />
+
       <div id="keys">
-        <button onclick="appearToDisplay('+')" class="operator-btn">+</button>
+        <button class="operator-btn" onclick="clearDisplay()">C</button>
+        <button class="operator-btn" onclick="appearToDisplay('/')">÷</button>
+        <button class="operator-btn" onclick="appearToDisplay('*')">×</button>
+        <button class="operator-btn" onclick="appearToDisplay('-')">−</button>
+
         <button onclick="appearToDisplay('7')">7</button>
         <button onclick="appearToDisplay('8')">8</button>
         <button onclick="appearToDisplay('9')">9</button>
-        <button onclick="appearToDisplay('-')" class="operator-btn">-</button>
+        <button class="operator-btn" onclick="appearToDisplay('+')">+</button>
+
         <button onclick="appearToDisplay('4')">4</button>
         <button onclick="appearToDisplay('5')">5</button>
         <button onclick="appearToDisplay('6')">6</button>
-        <button onclick="appearToDisplay('*')" class="operator-btn">x</button>
+        <button class="equal" onclick="calculate()">=</button>
+
         <button onclick="appearToDisplay('1')">1</button>
         <button onclick="appearToDisplay('2')">2</button>
         <button onclick="appearToDisplay('3')">3</button>
-        <button onclick="appearToDisplay('/')" class="operator-btn">÷</button>
-        <button onclick="appearToDisplay('0')">0</button>
-        <button onclick="appearToDisplay('.')">.</button>
-        <button onclick="calculate('=')" id="equal">=</button>
-        <button onclick="clearDisplay('C')" class="operator-btn" id="clear">
-          C
-        </button>
+        <button onclick="appearToDisplay('.')" class="dot">.</button>
+
+        <button class="zero" onclick="appearToDisplay('0')">0</button>
       </div>
     </div>
-  </body>
-  <script src="index.js"></script>
-</html>
 
-<!-- <button onclick="calculate('=')" class="operator-btn">=</button> -->
+    <script src="index.js"></script>
+  </body>
+</html>
